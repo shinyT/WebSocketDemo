@@ -15,7 +15,9 @@ If you wish to compile it with GCC from command line, be sure to provide -lcrypt
 
 HOW TO USE
 ==========
-Run created executable and open client.html with your browser. Type in the IP address and press "connect". Now you can send messages to the server (type them in the textarea and press "send").
+Run created executable, then and open Client.html with your browser.
+While in client, type in the IP address and press "connect". Now you can send messages to the server (type them in the textarea and press "send").
+
 To terminate application, you should sent SIGUSR1 signal to it:
 
         killall -s SIGUSR1 WebSocketDemo

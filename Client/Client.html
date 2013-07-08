@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WebSocket Demo</title>
+<script type="text/javascript">
+
+var ws = null;
+
+function openWebSocket()
+{
+        if("WebSocket" in window)
+        {
+                var address = document.getElementById("address");
+                var chat = document.getElementById("chat");
+                ws = new WebSocket("ws://" + address.value + ":9988");
+                ws.onopen = function()
+                {
+                        chat.value += "\r\n*** connected ***";
+                        chat.scrollTop = chat.scrollHeight;
+                };
+                ws.onmessage = function(evt)
+                {
+                        var msg = evt.data;
+                        var reader = new FileReader();
+                        var txt = null;
+                        reader.addEventListener("loadend", function()
+                        {
+                                txt = reader.result;
+                                chat.value += "\r\n> " + txt;
+                                chat.scrollTop = chat.scrollHeight;
+                        });
+                        reader.readAsText(msg);
+                };
+                ws.onclose = function()
+                {
+                        chat.value += "\r\n*** disconnected ***";
+                        chat.scrollTop = chat.scrollHeight;
+                        ws = null;
+                };
+                ws.onerror = function(evt)
+                {
+                        chat.value += "\r\n*** error: " + evt.data + " ***";
+                        chat.scrollTop = chat.scrollHeight;
+                        ws = null;
+                };
+        }
+        else
+        {
+                alert("This browser does not support WebSockets.");
+        }
+}
+
+function closeWebSocket()
+{
+        if(ws)
+                ws.close();
+        ws = null;
+}
+
+function sendMessage()
+{
+        if(ws)
+        {
+                var text = document.getElementById("message").value;
+                ws.send(text);
+        }
+}
+
+</script>
+</head>
+<body>
+        <h1>WebSocket Server</h1>
+        <p>address: <input type="text" value="127.0.0.1" id="address"></p>
+        <p><a href="javascript:openWebSocket()">connect</a></p>
+        <p><a href="javascript:closeWebSocket()">disconnect</a></p>
+        <p><textarea cols="50" rows="20" id="chat" readonly="true"></textarea></p>
+        <p><textarea cols="50" id="message"></textarea></p>
+        <p><a href="javascript:sendMessage()">send</a></p>
+</body>
+</html>
