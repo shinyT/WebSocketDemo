@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1373206617 source:/home/everard/cpp-projects/WebSocketDemo/Source/Chat.cpp
+	"Chat.h"
+	<iostream>
+	<utility>
+
+1373204699 /home/everard/cpp-projects/WebSocketDemo/Source/Chat.h
+	<WebSocket/WebSocket.h>
+	<unordered_set>
+
+1373206260 source:/home/everard/cpp-projects/WebSocketDemo/Source/LinuxSocket.cpp
+	"LinuxSocket.h"
+	<sys/socket.h>
+	<unistd.h>
+	<iostream>
+	<cassert>
+
+1373204599 /home/everard/cpp-projects/WebSocketDemo/Source/LinuxSocket.h
+	<WebSocket/WebSocket.h>
+
+1373204777 source:/home/everard/cpp-projects/WebSocketDemo/Source/Main.cpp
+	"Server.h"
+	"Chat.h"
+	<signal.h>
+	<iostream>
+	<cstdlib>
+
+1373206192 /home/everard/cpp-projects/WebSocketDemo/Source/Server.h
+	<WebSocket/WebSocket.h>
+	<unordered_map>
+	<cstdint>
+	<memory>
+	<string>
+
+1373294572 source:/home/everard/cpp-projects/WebSocketDemo/Source/Server.cpp
+	"Server.h"
+	"LinuxSocket.h"
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<sys/epoll.h>
+	<unistd.h>
+	<fcntl.h>
+	<iostream>
+	<utility>
+	<new>
+

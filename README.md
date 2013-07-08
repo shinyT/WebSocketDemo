@@ -23,4 +23,5 @@ To terminate application, you should sent SIGUSR1 signal to it:
 LICENSE
 =======
 Copyright (c) 2012 Nezametdinov E. Ildus
+
 This software is licensed under the MIT License (see LICENSE.txt).
