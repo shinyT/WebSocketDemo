@@ -18,7 +18,7 @@ HOW TO USE
 Run created executable, then open Client.html with your web browser.
 While in web browser, type in the IP address (you can use loopback 127.0.0.1 if client and server are on the same computer) and press "connect". Now you can send messages to the server (type them in the textarea and press "send").
 
-To terminate application, you should sent SIGUSR1 signal to it:
+To terminate application, you should send SIGUSR1 signal to it:
 
         killall -s SIGUSR1 WebSocketDemo
 
